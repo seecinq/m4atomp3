@@ -1,0 +1,17 @@
+You'll need lame, mplayer and a python library called mutagen.
+
+It should run wherever the requirements are matched. I run it into a 
+virtual machine running Slackware on my MacBook.
+
+Run the sh script passing the name of a directory where it can find 
+some m4a file in and it will decode to wav, encode to mp3 and copy some 
+of the m4a metadata to the mp3 id3tag. Finally it will clean the dir 
+from the intermediate wav files.
+
+You can change the options passed to LAME from the bash script. Read the 
+comments.
+
+I don't support this set of scripts but I hope you'll find them useful. 
+If you want to improve or fix stuff, http://github.com/alieb/m4atomp3 
+fork, create an AUTHORS file, stick your name in, do your stuff, notify 
+me with a pull request and that's it.
