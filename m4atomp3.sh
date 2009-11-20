@@ -29,24 +29,12 @@ LAMEOPTS="-V 0 --vbr-new -b 256 --lowpass 15.5 -q 0 --add-id3v2"
 
 CWD=$(pwd)
 
-m4a2wav(){
-  $MPLAYER -vc null -vo null -ao pcm:fast:file="$NAME.wav" "$FILE"
-}
-
-wav2mp3(){
-  $LAME $LAMEOPTS "$NAME.wav" "$NAME.mp3"
-}
-
-addtags(){
-  $CWD/addtags.py "$FILE" "$NAME.mp3"
-}
-
 convert() {
   for FILE in *.m4a; do
     NAME=$(basename "$FILE" .m4a)
-    m4a2wav
-    wav2mp3
-    addtags
+    $MPLAYER -vc null -vo null -ao pcm:fast:file="$NAME.wav" "$FILE"
+    $LAME $LAMEOPTS "$NAME.wav" "$NAME.mp3"
+    $CWD/addtags.py "$FILE" "$NAME.mp3"
   done
 }
 
@@ -64,3 +52,4 @@ else
   echo " argument? Hint: it has to contain some m4a file to convert."
   echo " "
 fi
+
