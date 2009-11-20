@@ -1,7 +1,7 @@
 You'll need lame, mplayer and a python library called mutagen.
 
-It should run wherever the requirements are matched. I run it into a 
-virtual machine running Slackware on my MacBook.
+It should run wherever the requirements are met. I run it into a virtual 
+machine running Slackware on my MacBook.
 
 Run the sh script passing the name of a directory where it can find 
 some m4a file in and it will decode to wav, encode to mp3 and copy some 
